@@ -56,6 +56,7 @@ WhaToDo::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
   
+  #jeśli jest dużo getów to znaczy że coś robimy źle, bo ich nie powinno być
   get "test/bye"
   resources :test
 end
