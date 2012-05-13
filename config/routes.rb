@@ -1,4 +1,6 @@
 WhaToDo::Application.routes.draw do
+  resources :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -58,4 +60,5 @@ WhaToDo::Application.routes.draw do
   
   get "test/bye"
   resources :test
+  resources :auth
 end
