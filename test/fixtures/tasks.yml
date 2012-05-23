@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  user_id: 1
+  person_id: 1
   duration: 1
 
 two:
   name: MyString
-  user_id: 1
+  person_id: 1
   duration: 1

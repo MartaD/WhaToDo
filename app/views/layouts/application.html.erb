@@ -11,7 +11,7 @@
   <div id="person_nav">
     <%if person_signed_in?%>
       Jesteś zalogowany jako: <%= current_person.email %>
-      Wyloguj <%= link_to "Sign out", destroy_person_session_path %>
+      Wyloguj <%= link_to "Sign out", destroy_person_session_path, :method => :delete %>
     <%else %>
      <%= link_to "Sign up", new_person_registration_path %> albo <%= link_to  "Sign in", new_person_session_path %>
     <%end %>

@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>User</th>
+    <th>Person</th>
     <th>Duration</th>
     <th></th>
     <th></th>
@@ -13,7 +13,7 @@
 <% @tasks.each do |task| %>
   <tr>
     <td><%= task.name %></td>
-    <td><%= task.user_id %></td>
+    <td><%= task.person_id %></td>
     <td><%= task.duration %></td>
     <td><%= link_to 'Show', task %></td>
     <td><%= link_to 'Edit', edit_task_path(task) %></td>
@@ -24,4 +24,4 @@
 
 <br />
 
-<%= link_to 'New Task', new_user_task_path %>
+<%= link_to 'New Task', new_task_path %>

@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :person
   
-  attr_accessible :duration, :name, :user_id
+  attr_accessible :duration, :name, :person_id
 end
