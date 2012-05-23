@@ -1,6 +1,12 @@
 WhaToDo::Application.routes.draw do
-  resources :users
+  #resources :tasks
 
+  #resources :users
+
+resources :users do
+  resources :tasks
+end  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
