@@ -1,5 +1,7 @@
 WhaToDo::Application.routes.draw do
-  #resources :tasks
+devise_for :people
+
+  resources :users
 
   #resources :users
 
