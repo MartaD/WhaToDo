@@ -1,8 +1,9 @@
 WhaToDo::Application.routes.draw do
-  devise_for :people
+devise_for :people
 
-  resources :users
+resources :tasks
 
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -60,9 +61,7 @@ WhaToDo::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
   
-  root :to => "test#index"
-  
-  get "test/bye"
-  resources :test
+  root :to => "auth#index"
+
   resources :auth
 end
