@@ -1,4 +1,4 @@
-<h1>Listing tasks</h1>
+<!-- <h1>Listing tasks</h1>
 
 <table>
   <tr>
@@ -23,5 +23,12 @@
 </table>
 
 <br />
+
+<%= link_to 'New Task', new_task_path %> -->
+
+
+<% @tasks.each do |task| %>
+  <div class='external-event'><%= link_to task.name, task %> | <%= link_to 'Edit', edit_task_path(task) %> | <%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %></div>
+<% end %>
 
 <%= link_to 'New Task', new_task_path %>
