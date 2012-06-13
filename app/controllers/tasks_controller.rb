@@ -2,13 +2,18 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    
-    @tasks = current_person.tasks
+    if current_person
+      @tasks = current_person.tasks
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @tasks }
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @tasks }
+      end
+    else
+      redirect_to "/people/sign_in"
     end
+    
+    
   end
 
   # GET /tasks/1

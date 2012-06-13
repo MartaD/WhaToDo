@@ -1,9 +1,88 @@
+/******** main elements ********/
+
 body {
+  width: 1000px;
+  margin: 10px auto;
+
   background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: arial, sans-serif;
   font-size: 13px;
-  line-height: 18px; }
+}
+
+a {
+  color: #000;
+  &:visited {
+    color: #666; }
+  &:hover {
+    color: #fff;
+    background-color: #000; } }
+
+
+
+/******** main frames ********/
+#header {
+  
+}
+
+#main_frame {
+  clear: both;
+  padding: 10px 5px;
+}
+
+#footer {
+  clear: both;
+  background-color: #eee;
+  padding: 5px;
+  text-align: center;
+}
+
+
+
+/******** header elements ********/
+
+#page_name {
+  float: left;
+  width: 40%;
+  font-size: 3em;
+  background-color: #9ff;
+  padding: 20px;
+}
+
+#page_name a {
+  color: black;
+  background-color: #9ff;
+  text-decoration: none;
+}
+
+#person_nav {
+  float: right;
+  width: 40%;
+  text-align: right;
+  font-style: italic;
+}
+
+#informations {
+  clear: both;
+  text-align: center;
+  font-weight: bold;
+  background-color: yellow;
+}
+
+.notice {
+  color: green;
+}
+
+.alert {
+  color: red;
+}
+
+
+
+
+
+
+/******** old styles ********/
+/*
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -15,20 +94,11 @@ pre {
   padding: 10px;
   font-size: 11px; }
 
-a {
-  color: #000;
-  &:visited {
-    color: #666; }
-  &:hover {
-    color: #fff;
-    background-color: #000; } }
+
 
 div {
   &.field, &.actions {
     margin-bottom: 10px; } }
-
-#notice {
-  color: green; }
 
 .field_with_errors {
   padding: 2px;
@@ -54,3 +124,4 @@ div {
   ul li {
     font-size: 12px;
     list-style: square; } }
+*/
