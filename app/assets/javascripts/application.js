@@ -13,3 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+function showCalendar() {
+  document.getElementById("workspace").style.display="none";
+  document.getElementById("calendar").style.display="block";
+}
+
+function showWorkspace() {
+  document.getElementById("workspace").style.display="block";
+  document.getElementById("calendar").style.display="none";
+}

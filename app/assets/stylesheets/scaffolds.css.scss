@@ -77,6 +77,40 @@ a {
 }
 
 
+/******** main frame elements ********/
+
+#tasks_list {
+  float: left;
+  width: 27%;
+  padding: 10px;
+}
+
+#tasks_right_panel {
+  float: right;
+  width: 67%;
+}
+
+#tasks_selection_menu {
+  font-size: 1.1em;
+}
+
+#tasks_selection_menu a {
+  background-color: #ff9;
+  text-decoration: none;
+  color: green;
+}
+
+#calendar {
+  display: block;
+  padding: 10px;
+}
+
+#workspace {
+  display: none;
+  padding: 10px;
+}
+
+
 
 
 

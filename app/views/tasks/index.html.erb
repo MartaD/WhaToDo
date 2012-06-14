@@ -1,12 +1,22 @@
-<table>
-<% @tasks.each do |task| %>
-  <tr>
-    <td><%= task.name %></td>
-    <td><%= task.person_id %></td>
-    <td><%= task.duration %></td>
-    <td><%= link_to 'Show', task %></td>
-    <td><%= link_to 'Edit', edit_task_path(task) %></td>
-    <td><%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+<div id="tasks_list">
+<h2>Lista zadań</h2>
+
+  <% @tasks.each do |task| %>  <% task_id = "task_#{task.id}" %>
+    <div draggable="true" class="task" id=<%= task_id %>><%= link_to task.name, task %> [ <%= link_to 'edit', edit_task_path(task) %>,
+      <%= link_to 'destroy', task, confirm: 'Are you sure?', method: :delete %> ] </div>
+    
+  <% end %>
+
+</div>
+
+<div id="tasks_right_panel">
+  <div id="tasks_selection_menu">
+    <%= link_to_function "Kalendarz", "showCalendar()" %> | <%= link_to_function "Obszar roboczy", "showWorkspace()" %>
+  </div>
+  <div id="calendar">
+    Kalendarz
+  </div>
+  <div id="workspace">
+    Obszar roboczy
+  </div>
+</div>
