@@ -45,37 +45,8 @@ $.ajax({
   <div id="calendar">
     Kalendarz
   </div>
-  <div id="workspace" >
+  <div id="workspace" style="width: 600px;height: 200px" ondrop="drop(event,1)" ondragover="allowDrop(event)">
     Obszar roboczy
-    
-    <div id="urgentImp" style="float: left;width: 200px;height: 200px;border: 1px" ondrop="drop(event,1)" ondragover="allowDrop(event)">
-      <% @tasks.with_priority(1).each do |task| %>
-      <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
-        <%= task.name %> [ <%= link_to 'Details', task %> ] 
-        </div>
-      <% end %>
-    </div>
-    <div id="urgentUnimp"style="float: left;width: 200px;height: 200px;border: 1px" ondrop="drop(event,2)" ondragover="allowDrop(event)">
-      <% @tasks.with_priority(2).each do |task| %>
-      <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
-        <%= task.name %> [ <%= link_to 'Details', task %> ] 
-        </div>
-      <% end %>
-    </div>
-    <div id="unurgentImp" style="float: right;width: 200px;height: 200px;border: 1px" ondrop="drop(event,3)" ondragover="allowDrop(event)">
-      <% @tasks.with_priority(3).each do |task| %>
-      <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
-        <%= task.name %> [ <%= link_to 'Details', task %> ] 
-        </div>
-      <% end %>
-    </div>
-    <div id="unurgentUnimp" style="float: right;width: 200px;height: 200px;border: 1px" ondrop="drop(event,4)" ondragover="allowDrop(event)">
-      <% @tasks.with_priority(4).each do |task| %>
-      <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
-        <%= task.name %> [ <%= link_to 'Details', task %> ] 
-        </div>
-      <% end %>
-    </div>
     
   <% @tasks.with_priority(1).each do |task| %>
     <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
