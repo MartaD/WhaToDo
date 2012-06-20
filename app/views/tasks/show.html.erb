@@ -1,20 +1,45 @@
 
 <p>
-  <b>Name:</b>
+  <b>Nazwa:</b>
   <%= @task.name %>
 </p>
 
 <p>
-  <b>Person:</b>
+  <b>Użytkownik:</b>
   <%= @task.person_id %>
 </p>
 
 <p>
-  <b>Duration:</b>
+  <b>Czas trwania:</b>
   <%= @task.duration %>
 </p>
 
+<p>
+  <b>Opis:</b>
+  <%= @task.description %>
+</p>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Destroy', @task, confirm: 'Are you sure?', method: :delete %> |
-<%= link_to 'Back', tasks_path %>
+<p>
+  <b>Priorytet:</b>
+  <%= @task.priority %>
+</p>
+
+<p>
+  <b>Status zadania:</b>
+  <%= @task.status %>
+</p>
+    
+<p>
+  <b>Początek:</b>
+  <%= @task.start_at %>
+</p>
+
+<p>
+  <b>Koniec:</b>
+  <%= @task.end_at %>
+</p>
+
+
+<%= link_to 'Edytuj', edit_task_path(@task) %> |
+<%= link_to 'Usuń', @task, confirm: 'Jesteś pewien?', method: :delete %> |
+<%= link_to 'Wróć', tasks_path %>
