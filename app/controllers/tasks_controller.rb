@@ -86,4 +86,11 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def set_priority
+    @task = Task.find(params[:id])
+    @task.update_attribute(:priority, params[:priority])
+    render :nothing => true
+  end
+  
 end

@@ -1,12 +1,41 @@
-<div id="tasks_list">
-<h2>Lista zadań</h2>
+<script type="text/javascript">
+function allowDrop(ev)
+{
+ev.preventDefault();
+}
 
-  <% @tasks.each do |task| %>  <% task_id = "task_#{task.id}" %>
-    <div draggable="true" class="task" id=<%= task_id %>><%= link_to task.name, task %> [ <%= link_to 'edit', edit_task_path(task) %>,
-      <%= link_to 'destroy', task, confirm: 'Are you sure?', method: :delete %> ] </div>
-    
-  <% end %>
+function drag(ev,_id)
+{
+ev.dataTransfer.setData("Text",ev.target.id);
+ev.dataTransfer.setData("id",_id);
+}
+
+function drop(ev,_prio)
+{
+ev.preventDefault();
+var data=ev.dataTransfer.getData("Text");
+var _id=ev.dataTransfer.getData("id");
+
+
+ev.target.appendChild(document.getElementById(data));
+
+$.ajax({
+  type: 'POST',
+  url: '/tasks/' + _id + '/set_priority/' + _prio
+});
+
+}
+</script>
+<div id="tasks_list" ondrop="drop(event,0)" ondragover="allowDrop(event)">
+<h2>Lista zadań</h2>
 <div id="new_task_link"><%= link_to 'New Task', new_task_path %></div>
+  <% @tasks.with_priority(0).each do |task| %>
+    <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
+      <%= task.name %> [ <%= link_to 'Details', task %> ] 
+    </div>
+  <% end %>
+
+
 </div>
 
 <div id="tasks_right_panel">
@@ -16,7 +45,43 @@
   <div id="calendar">
     Kalendarz
   </div>
-  <div id="workspace">
+  <div id="workspace" >
     Obszar roboczy
+    
+    <div id="urgentImp" style="float: left;width: 200px;height: 200px;border: 1px" ondrop="drop(event,1)" ondragover="allowDrop(event)">
+      <% @tasks.with_priority(1).each do |task| %>
+      <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
+        <%= task.name %> [ <%= link_to 'Details', task %> ] 
+        </div>
+      <% end %>
+    </div>
+    <div id="urgentUnimp"style="float: left;width: 200px;height: 200px;border: 1px" ondrop="drop(event,2)" ondragover="allowDrop(event)">
+      <% @tasks.with_priority(2).each do |task| %>
+      <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
+        <%= task.name %> [ <%= link_to 'Details', task %> ] 
+        </div>
+      <% end %>
+    </div>
+    <div id="unurgentImp" style="float: right;width: 200px;height: 200px;border: 1px" ondrop="drop(event,3)" ondragover="allowDrop(event)">
+      <% @tasks.with_priority(3).each do |task| %>
+      <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
+        <%= task.name %> [ <%= link_to 'Details', task %> ] 
+        </div>
+      <% end %>
+    </div>
+    <div id="unurgentUnimp" style="float: right;width: 200px;height: 200px;border: 1px" ondrop="drop(event,4)" ondragover="allowDrop(event)">
+      <% @tasks.with_priority(4).each do |task| %>
+      <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
+        <%= task.name %> [ <%= link_to 'Details', task %> ] 
+        </div>
+      <% end %>
+    </div>
+    
+  <% @tasks.with_priority(1).each do |task| %>
+    <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
+      <%= task.name %> [ <%= link_to 'Details', task %> ] 
+    </div>
+  <% end %>    
+    
   </div>
 </div>

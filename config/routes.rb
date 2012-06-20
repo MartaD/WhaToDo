@@ -4,7 +4,14 @@ WhaToDo::Application.routes.draw do
   
   devise_for :people
 
-  resources :tasks
+  resources :tasks do
+    member do
+     # post 'set_priority'
+    end
+  end
+  
+  match 'tasks/:id/set_priority/:priority' => 'tasks#set_priority'
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
