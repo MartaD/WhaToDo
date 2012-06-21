@@ -1,4 +1,6 @@
 class Task < ActiveRecord::Base
+  has_event_calendar
+  
   belongs_to :person
   
   attr_accessible :duration, :name, :person_id, :priority

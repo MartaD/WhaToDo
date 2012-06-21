@@ -26,6 +26,9 @@ $.ajax({
 
 }
 </script>
+
+<!--------------------- LISTA TASKOW --------------------->
+
 <div id="tasks_list" ondrop="drop(event,0)" ondragover="allowDrop(event)">
 <h2>Lista zadań</h2>
 <div id="new_task_link"><%= link_to 'New Task', new_task_path %></div>
@@ -44,11 +47,16 @@ $.ajax({
   <div id="tasks_selection_menu">
     <%= link_to_function "Kalendarz", "showCalendar()" %> | <%= link_to_function "Obszar roboczy", "showWorkspace()" %>
   </div>
+
+<!--------------------- KALENDARZ --------------------->
+
   <div id="calendar">
-    Kalendarz
+    <%= raw(event_calendar) %>
   </div>
+
+<!--------------------- OBSZAR ROBOCZY --------------------->
+
   <div id="workspace" >
-    Obszar roboczy
     <div style="width: 410px">  
     <div id="urgentImp" style="float:left; width: 200px;height: 200px; border:1px solid black" ondrop="drop(event,1)" ondragover="allowDrop(event)">
       Pilne Ważne

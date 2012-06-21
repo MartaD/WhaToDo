@@ -38,3 +38,5 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+gem 'event-calendar', :require => 'event_calendar'

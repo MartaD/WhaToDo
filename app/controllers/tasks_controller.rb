@@ -4,6 +4,14 @@ class TasksController < ApplicationController
   def index
     if current_person
       @tasks = current_person.tasks
+      
+      #calendar_controler:
+      @month = (params[:month] || (Time.zone || Time).now.month).to_i
+      @year = (params[:year] || (Time.zone || Time).now.year).to_i
+      
+      @shown_month = Date.civil(@year, @month)
+      
+      @event_strips = Task.event_strips_for_month(@shown_month)
 
       respond_to do |format|
         format.html # index.html.erb
@@ -12,6 +20,7 @@ class TasksController < ApplicationController
     else
       redirect_to "/people/sign_in"
     end
+    
     
     
   end
