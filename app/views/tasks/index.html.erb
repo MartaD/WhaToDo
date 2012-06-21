@@ -31,11 +31,11 @@ $.ajax({
 
 <div id="tasks_list" ondrop="drop(event,0)" ondragover="allowDrop(event)">
 <h2>Lista zadań</h2>
-<div id="new_task_link"><%= link_to 'New Task', new_task_path %></div>
+<div id="new_task_link"><%= link_to 'Nowe zadanie', new_task_path %></div>
 <div style="float:left; width: 200px;height: 200px; border:1px solid black">
   <% @tasks.with_priority(0).each do |task| %>
     <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
-      <%= task.name %> [ <%= link_to 'Details', task %> ] 
+      <%= task.name %> [ <%= link_to 'Szczegóły', task %> ] 
     </div>
   <% end %>
 </div>
@@ -62,7 +62,7 @@ $.ajax({
       Pilne Ważne
       <% @tasks.with_priority(1).each do |task| %>
       <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
-        <%= task.name %> [ <%= link_to 'Details', task %> ] 
+        <%= task.name %> [ <%= link_to 'Szczegóły', task %> ] 
         </div>
       <% end %>
     </div>
@@ -70,7 +70,7 @@ $.ajax({
       Pilne Nieważne
       <% @tasks.with_priority(2).each do |task| %>
       <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
-        <%= task.name %> [ <%= link_to 'Details', task %> ] 
+        <%= task.name %> [ <%= link_to 'Szczegóły', task %> ] 
         </div>
       <% end %>
     </div>
@@ -78,7 +78,7 @@ $.ajax({
       Niepilne Ważne
       <% @tasks.with_priority(3).each do |task| %>
       <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
-        <%= task.name %> [ <%= link_to 'Details', task %> ] 
+        <%= task.name %> [ <%= link_to 'Szczegóły', task %> ] 
         </div>
       <% end %>
     </div>
@@ -86,7 +86,7 @@ $.ajax({
       Niepilne Nieważne
       <% @tasks.with_priority(4).each do |task| %>
       <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
-        <%= task.name %> [ <%= link_to 'Details', task %> ] 
+        <%= task.name %> [ <%= link_to 'Szczegóły', task %> ] 
         </div>
       <% end %>
     </div>    
