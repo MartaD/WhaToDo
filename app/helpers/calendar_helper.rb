@@ -6,7 +6,7 @@ module CalendarHelper
         :year => (Time.zone || Time).now.year,
         :month => (Time.zone || Time).now.month,
         :abbrev => true,
-        :first_day_of_week => 1,
+        :first_day_of_week => 0,
         :show_today => true,
         :show_header => true,
         :month_name_text => (Time.zone || Time).now.strftime("%B %Y"),
@@ -257,7 +257,7 @@ module CalendarHelper
     # args is an argument hash containing :event, :day, and :options
     calendar event_calendar_opts do |args|
       event = args[:event]
-      %(<a href="/events/#{event.id}" title="#{h(event.name)}">#{h(event.name)}</a>)
+      %(<a href="/tasks/#{event.id}" title="#{h(event.name)}">#{h(event.name)}</a>)
     end
   end
 end
