@@ -11,3 +11,16 @@
  *= require_self
  *= require_tree .
 */
+
+#mainFrame {
+    background-color: blue;
+}
+
+#tasks_left_panel {
+    background-color: red;
+    float: left;
+}
+
+#tasks_right_panel {
+    background-color: green;
+}

@@ -28,19 +28,21 @@ $.ajax({
 </script>
 
 <!--------------------- LISTA TASKOW --------------------->
-
-<div id="tasks_list" ondrop="drop(event,0)" ondragover="allowDrop(event)">
-<h2>Lista zadań</h2>
-<div id="new_task_link"><%= link_to 'Nowe zadanie', new_task_path %></div>
-<div style="float:left; width: 200px;height: 200px; border:1px solid black">
-  <% @tasks.with_priority(0).each do |task| %>
-    <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
-      <%= task.name %> [ <%= link_to 'Szczegóły', task %> ] 
-    </div>
-  <% end %>
-</div>
-
-
+<div id="tasks_left_panel">
+  <div id="tasks_list" ondrop="drop(event,0)" ondragover="allowDrop(event)">
+    <h2>Lista zadań</h2>
+    <div id="new_task_link"><%= link_to 'Nowe zadanie', new_task_path %></div>
+      <div style="float:left; width: 200px;height: 200px; border:1px solid black">
+      <% @tasks.with_priority(0).each do |task| %>
+        <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
+          <%= task.name %> [ <%= link_to 'Szczegóły', task %> ] 
+        </div>
+      <% end %>
+      </div>
+  </div>
+  <div id="button_panel">
+    <%= link_to  "Tygodniowe WhaToDo", :action => "wtd_week", :method => "PUTS" %>
+  </div>
 </div>
 
 <div id="tasks_right_panel">
@@ -71,7 +73,7 @@ $.ajax({
       <% @tasks.with_priority(2).each do |task| %>
       <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
         <%= task.name %> [ <%= link_to 'Szczegóły', task %> ] 
-        </div>
+      </div>
       <% end %>
     </div>
     <div id="unurgentImp" style= "float:left; width: 200px;height: 200px; border:1px solid black" ondrop="drop(event,3)" ondragover="allowDrop(event)">
@@ -79,7 +81,7 @@ $.ajax({
       <% @tasks.with_priority(3).each do |task| %>
       <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
         <%= task.name %> [ <%= link_to 'Szczegóły', task %> ] 
-        </div>
+      </div>
       <% end %>
     </div>
     <div id="unurgentUnimp" style="float:left; width: 200px;height: 200px; border:1px solid black" ondrop="drop(event,4)" ondragover="allowDrop(event)">
@@ -87,7 +89,7 @@ $.ajax({
       <% @tasks.with_priority(4).each do |task| %>
       <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
         <%= task.name %> [ <%= link_to 'Szczegóły', task %> ] 
-        </div>
+      </div>
       <% end %>
     </div>    
     </div>

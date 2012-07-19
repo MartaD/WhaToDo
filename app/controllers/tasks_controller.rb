@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
+  
   def index
     if current_person
       @tasks = current_person.tasks
@@ -29,7 +30,9 @@ class TasksController < ApplicationController
   # GET /tasks/1.json
   def show
     @task = Task.find(params[:id])
-
+    @person = Person.find_by_id(@task.person_id)
+    @priority = ["Brak priorytetu", "Pilne Ważne", "Pilne Nieważne", "Niepilne Ważne", "Niepilne Ważne"]
+    @status = ["Nieprzydzielone", "Przydzielone"]
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @task }
@@ -39,6 +42,7 @@ class TasksController < ApplicationController
   # GET /tasks/new
   # GET /tasks/new.json
   def new
+    @priority = ["Brak priorytetu", "Pilne Ważne", "Pilne Nieważne", "Niepilne Ważne", "Niepilne Ważne"]
     @task = Task.new
 
     respond_to do |format|
@@ -99,7 +103,17 @@ class TasksController < ApplicationController
   def set_priority
     @task = Task.find(params[:id])
     @task.update_attribute(:priority, params[:priority])
+    if(:priority == 0)
+      @task.update_attribute(:status, 0)
+    else
+      @task.update_attribute(:status, 1)
+    end
     render :nothing => true
+  end
+  
+  def wtd_week
+    #TO DO:
+    #zrobić coś z tą funkcją, żeby się wywoływała w ogóle, a potem ja stworzyć
   end
   
 end

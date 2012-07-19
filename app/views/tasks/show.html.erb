@@ -6,7 +6,7 @@
 
 <p>
   <b>Użytkownik:</b>
-  <%= @task.person_id %>
+  <%= @person.email %>
 </p>
 
 <p>
@@ -21,25 +21,26 @@
 
 <p>
   <b>Priorytet:</b>
-  <%= @task.priority %>
+  <%= @priority[@task.priority] %>
 </p>
 
 <p>
   <b>Status zadania:</b>
-  <%= @task.status %>
+  <%= @status[@task.status] %>
 </p>
     
 <p>
   <b>Początek:</b>
-  <%= @task.start_at %>
+  <%= @task.start_at.year.to_s + "-" + @task.start_at.month.to_s + "-" + @task.start_at.day.to_s  %>
+  <%=  %>
 </p>
 
 <p>
   <b>Koniec:</b>
-  <%= @task.end_at %>
+  <%= @task.end_at.year.to_s + "-" + @task.end_at.month.to_s + "-" + @task.end_at.day.to_s %>
 </p>
-
 
 <%= link_to 'Edytuj', edit_task_path(@task) %> |
 <%= link_to 'Usuń', @task, confirm: 'Jesteś pewien?', method: :delete %> |
-<%= link_to 'Wróć', tasks_path %>
+<%= link_to 'Wróć', tasks_path %> |
+<%= link_to 'WTD' %>
