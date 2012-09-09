@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
