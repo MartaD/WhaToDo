@@ -11,7 +11,7 @@
 
 <p>
   <b>Czas trwania:</b>
-  <%= @task.duration %>
+  <%= @task.duration %>h
 </p>
 
 <p>
@@ -31,16 +31,16 @@
     
 <p>
   <b>Początek:</b>
-  <%= @task.start_at.year.to_s + "-" + @task.start_at.month.to_s + "-" + @task.start_at.day.to_s  %>
+  <%= @task.start_at.strftime('%Y-%m-%d %H:%M')  %>
   <%=  %>
 </p>
 
 <p>
   <b>Koniec:</b>
-  <%= @task.end_at.year.to_s + "-" + @task.end_at.month.to_s + "-" + @task.end_at.day.to_s %>
+  <%= @task.end_at.strftime('%Y-%m-%d %H:%M') %>
 </p>
 
 <%= link_to 'Edytuj', edit_task_path(@task) %> |
 <%= link_to 'Usuń', @task, confirm: 'Jesteś pewien?', method: :delete %> |
 <%= link_to 'Wróć', tasks_path %> |
-<%= link_to 'WTD' %>
+<%= link_to 'WTD', @task, method: :wtd_post %>

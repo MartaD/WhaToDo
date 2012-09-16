@@ -16,7 +16,7 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :duration, "Czas trwania" %><br />
+    <%= f.label :duration, "Czas trwania (w godzinach)" %><br />
     <%= f.number_field :duration %>
   </div>
 
@@ -40,12 +40,12 @@
     
     <div class="field" >
     <%= f.label :start_at, "Początek" %><br />
-    <%= f.date_select :start_at %>
+    <%= f.datetime_select :start_at %>
     </div>
     
     <div class="field" >
     <%= f.label :end_at, "Koniec" %><br />
-    <%= f.date_select :end_at %>
+    <%= f.datetime_select :end_at %>
     </div>
   </details>
 

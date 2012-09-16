@@ -112,6 +112,11 @@ class TasksController < ApplicationController
     render :nothing => true
   end
   
+  def wtd_post
+    #TO DO:
+    #zrobić coś z tą funkcją, żeby się wywoływała w ogóle, a potem ja stworzyć
+  end
+  
   def wtd_week
     #TO DO:
     #zrobić coś z tą funkcją, żeby się wywoływała w ogóle, a potem ja stworzyć
