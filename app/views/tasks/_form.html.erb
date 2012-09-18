@@ -34,18 +34,24 @@
     </div>
     
     <div class="field" >
-    <%= f.label :status, "Status zadania" %><br />
+    <%= f.label :status, "Status zadania (1, jeżeli ma już ustalony czas; 0, jeżeli czas ma zostać przydzielony)" %><br />
     <%= f.number_field :status %>
     </div>
     
     <div class="field" >
-    <%= f.label :start_at, "Początek" %><br />
+    <%= f.label :start_at, "Początek (jeżeli status = 1)" %><br />
     <%= f.datetime_select :start_at %>
     </div>
     
+  <!--  <div class="field" >
+    <%#  koniec zadania ustalany automatycznie jako start+długość %>
+    <%#= f.label :end_at, "Koniec (jeżeli status = 1)" %><br />
+    <%#= f.datetime_select :end_at %>
+    </div> -->
+    
     <div class="field" >
-    <%= f.label :end_at, "Koniec" %><br />
-    <%= f.datetime_select :end_at %>
+    <%= f.label :deadline, "Deadline (jeżeli status = 0)" %><br />
+    <%= f.datetime_select :deadline %>
     </div>
   </details>
 

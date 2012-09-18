@@ -31,16 +31,32 @@
     
 <p>
   <b>Początek:</b>
-  <%= @task.start_at.strftime('%Y-%m-%d %H:%M')  %>
-  <%=  %>
+  <%= if @task.start_at.nil?
+        "null"
+      else
+        @task.start_at.strftime('%Y-%m-%d %H:%M')
+      end %>
 </p>
 
 <p>
   <b>Koniec:</b>
-  <%= @task.end_at.strftime('%Y-%m-%d %H:%M') %>
+  <%= if @task.end_at.nil?
+        "null"
+      else
+        @task.end_at.strftime('%Y-%m-%d %H:%M')
+      end %>
+</p>
+
+<p>
+  <b>Deadline:</b>
+  <%= if @task.deadline.nil?
+        "null"
+      else
+        @task.deadline.strftime('%Y-%m-%d %H:%M')
+      end %>
 </p>
 
 <%= link_to 'Edytuj', edit_task_path(@task) %> |
 <%= link_to 'Usuń', @task, confirm: 'Jesteś pewien?', method: :delete %> |
 <%= link_to 'Wróć', tasks_path %> |
-<%= link_to 'WTD', @task, method: :wtd_post %>
+<%= link_to 'WTD', @task, method: :wtd %>

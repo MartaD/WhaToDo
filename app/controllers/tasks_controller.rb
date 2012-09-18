@@ -77,6 +77,8 @@ class TasksController < ApplicationController
   # PUT /tasks/1.json
   def update
     @task = Task.find(params[:id])
+    #użytkownik nie może zmienić końca taska - tutaj dbamy o to, żeby koniec był zawsze zaktualizowany
+    @task.end_at = @task.start_at + 60*60*@task.duration
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
@@ -112,7 +114,15 @@ class TasksController < ApplicationController
     render :nothing => true
   end
   
-  def wtd_post
+  def wtd_task
+    @task = Task.find(params[:id])
+    @person = Person.find_by_id(@task.person_id)
+    @priority = ["Brak priorytetu", "Pilne Ważne", "Pilne Nieważne", "Niepilne Ważne", "Niepilne Ważne"]
+    @status = ["Nieprzydzielone", "Przydzielone"]
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @task }
+    end
     #TO DO:
     #zrobić coś z tą funkcją, żeby się wywoływała w ogóle, a potem ja stworzyć
   end
