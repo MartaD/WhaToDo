@@ -64,6 +64,11 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
+        @task.update_attribute(:end_at, @task.start_at + 60*60*@task.duration)
+        if @task.status == 0
+          @task.update_attribute(:start_at, nil)
+          @task.update_attribute(:end_at, nil)
+        end
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else
@@ -82,6 +87,10 @@ class TasksController < ApplicationController
       if @task.update_attributes(params[:task])
         #użytkownik nie może zmienić końca taska - tutaj dbamy o to, żeby koniec był zawsze zaktualizowany
         @task.update_attribute(:end_at, @task.start_at + 60*60*@task.duration)
+        if @task.status == 0
+          @task.update_attribute(:start_at, nil)
+          @task.update_attribute(:end_at, nil)
+        end
         
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
         format.json { head :no_content }
@@ -163,7 +172,7 @@ class TasksController < ApplicationController
       else
         # sprawdź czy któryś task z już przydzielonych ma przedział, który
         # pokrywa się z naszym przedziałem 
-        tasks = Task.all(:conditions => { :status => 1 } )
+        tasks = Task.all(:conditions => { :status => 1, :person_id => @task.person_id  } )
         for @other_task in tasks do
           #jeżeli pokrywa -> ustal godzinę na godzinę zakończenia tego pokrywającego się i szukaj od początku
           if ( ( @other_task.start_at < @end_time ) && ( @start_time < @other_task.end_at ) )

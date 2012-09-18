@@ -33,7 +33,7 @@ $.ajax({
     <h2>Lista zadań</h2>
     <div id="new_task_link"><%= link_to 'Nowe zadanie', new_task_path %></div>
       <div style="float:left; width: 200px;height: 200px; border:1px solid black">
-      <% @tasks.with_priority(0).each do |task| %>
+      <% Task.all(:conditions => { :status => 0, :priority => 0  } ).each do |task| %>
         <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
           <%= task.name %> [ <%= link_to 'Szczegóły', task %> ] 
         </div>
