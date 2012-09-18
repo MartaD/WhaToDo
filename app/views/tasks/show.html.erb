@@ -59,4 +59,5 @@
 <%= link_to 'Edytuj', edit_task_path(@task) %> |
 <%= link_to 'Usuń', @task, confirm: 'Jesteś pewien?', method: :delete %> |
 <%= link_to 'Wróć', tasks_path %> |
-<%= link_to 'WTD', @task, method: :wtd %>
+<%#= bardzo na chama, ale nie potrafię tego inaczej zrobić :/ %>
+<%= link_to 'Zaproponuj termin!', @task.id.to_s + "/wtd" %>

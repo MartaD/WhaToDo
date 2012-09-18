@@ -11,7 +11,9 @@ WhaToDo::Application.routes.draw do
   end
   
   match 'tasks/:id/set_priority/:priority' => 'tasks#set_priority'
-  match 'tasks/:id/wtd' => 'tasks#wtd_task'
+  #w obydwu seconds oznacza liczbę sekund od początku epoki
+  match 'tasks/:id/wtd(/:seconds)' => 'tasks#wtd_task'
+  match 'tasks/:id/set_time_and_status/:seconds' => 'tasks#set_time_and_status'
   match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
   
   

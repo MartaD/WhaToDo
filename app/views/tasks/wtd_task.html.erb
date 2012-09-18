@@ -4,4 +4,38 @@
   <%= @task.name %>
 </p>
 
+<% if @task.status == 1 %>
+<!-- Przydzielony termin zadania -->
+<p>
+  <b>Zadanie ma już przydzielony termin!</b>
+</p>
 
+<% elsif @task.duration > (@day_ends_at-@day_starts_at) %>
+<!-- Zadanie za długie - aktualny algorytm go nie obsługuje -->
+<p>
+  <b>Zadanie ma zbyt długi czas trwania! Algorytm nie jest w stanie znaleźć dla niego odpowiedniego terminu :(</b>
+</p>
+
+<% elsif @after_deadline %>
+<!-- Przekroczony deadline! -->
+<p>
+  <b>Nie znajduję więcej terminów przed deadline! Masz problem...</b>
+</p>
+
+<% else %>
+<!-- Szukamy terminu dla zadania -->
+<p>
+<i>Propozycja terminu:</i> 
+<b><%= @start_time.strftime('%Y-%m-%d %H:%M') %> - <%= @end_time.strftime('%Y-%m-%d %H:%M') %></b><br />
+</p>
+<p>
+<i>Akceptujesz?</i><br />
+<b><%= link_to 'Tak', "/tasks/" + @task.id.to_s + "/set_time_and_status/" + @start_time.strftime("%s") %></b> |
+<%= link_to 'Nie, poszukaj innego terminu', "/tasks/" + @task.id.to_s + "/wtd/" + @new_start_time.strftime("%s") %>
+
+</p>
+
+<% end %>
+
+<%= link_to 'Wróć', @task %> |
+<%= link_to 'Kalendarz', tasks_path %>
