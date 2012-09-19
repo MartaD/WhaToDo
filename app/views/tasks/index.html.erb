@@ -28,22 +28,19 @@ $.ajax({
 </script>
 
 <!--------------------- LISTA TASKOW --------------------->
-<div id="tasks_left_panel">
-  <div id="tasks_list" ondrop="drop(event,0)" ondragover="allowDrop(event)">
-    <h2>Lista zadań</h2>
-    <div id="new_task_link"><%= link_to 'Nowe zadanie', new_task_path %></div>
-      <div style="float:left; width: 200px;height: 200px; border:1px solid black">
-      <% Task.all(:conditions => { :status => 0, :priority => 0  } ).each do |task| %>
-        <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
-          <%= task.name %> [ <%= link_to 'Szczegóły', task %> ] 
-        </div>
-      <% end %>
+<div id="tasks_list" ondrop="drop(event,0)" ondragover="allowDrop(event)">
+  <h2>Lista zadań</h2>
+<!--  <div id="button_panel"><%= link_to  "Tygodniowe WhaToDo", :action => "wtd_week", :method => "PUTS" %></div>  -->
+  <div id="new_task_link"><%= link_to 'Nowe zadanie', new_task_path %></div>
+    <div style="float:left; width: 200px;height: 200px; border:1px solid black">
+    <% Task.all(:conditions => { :status => 0, :priority => 0  } ).each do |task| %>
+      <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">
+        <%= task.name %> [ <%= link_to 'Szczegóły', task %> ] 
       </div>
-  </div>
-  <div id="button_panel">
-    <%= link_to  "Tygodniowe WhaToDo", :action => "wtd_week", :method => "PUTS" %>
-  </div>
+    <% end %>
+    </div>
 </div>
+
 
 <div id="tasks_right_panel">
   <div id="tasks_selection_menu">
@@ -68,7 +65,7 @@ $.ajax({
         </div>
       <% end %>
     </div>
-    <div id="urgentUnimp"style="float:left; width: 200px;height: 200px; border:1px solid black" ondrop="drop(event,2)" ondragover="allowDrop(event)">
+    <div id="urgentUnimp" style="float:left; width: 200px;height: 200px; border:1px solid black" ondrop="drop(event,2)" ondragover="allowDrop(event)">
       Pilne Nieważne
       <% @tasks.with_priority(2).each do |task| %>
       <div draggable="true" ondragstart="drag(event,<%= task.id %>)" class="task" id="<%= "task_#{task.id}" %>">

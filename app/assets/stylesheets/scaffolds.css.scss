@@ -4,7 +4,7 @@ body {
   width: 1000px;
   margin: 10px auto;
 
-  background-color: #fff;
+  background-color: whitesmoke;
   font-family: arial, sans-serif;
   font-size: 13px;
 }
@@ -21,17 +21,18 @@ a {
 
 /******** main frames ********/
 #header {
-  
+  background-color: #ddd;
 }
 
 #main_frame {
   clear: both;
+  background-color: whitesmoke;
   padding: 10px 5px;
 }
 
 #footer {
   clear: both;
-  background-color: #eee;
+  background-color: #ddd;
   padding: 5px;
   text-align: center;
 }
@@ -44,13 +45,11 @@ a {
   float: left;
   width: 40%;
   font-size: 3em;
-  background-color: #9ff;
   padding: 20px;
 }
 
 #page_name a {
   color: black;
-  background-color: #9ff;
   text-decoration: none;
 }
 
@@ -100,9 +99,8 @@ a {
 }
 
 #tasks_selection_menu a {
-  background-color: #ff9;
   text-decoration: none;
-  color: green;
+  color: #333;
 }
 
 #calendar {
