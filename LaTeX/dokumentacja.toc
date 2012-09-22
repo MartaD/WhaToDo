@@ -28,8 +28,7 @@
 \contentsline {subsection}{\numberline {6.3.1}Sugestia terminu dla wybranego zadania}{16}
 \contentsline {subsection}{\numberline {6.3.2}Sugestia planu na najbli\IeC {\.z}szy tydzie\IeC {\'n}}{17}
 \contentsline {section}{\numberline {6.4}Warstwa Prezentacji}{17}
-\contentsline {chapter}{\numberline {7}Podsumowanie}{18}
-\contentsline {section}{\numberline {7.1}Co uda\IeC {\l }o si\IeC {\k e} zrealizowa\IeC {\'c}?}{18}
-\contentsline {section}{\numberline {7.2}Napotkane problemy}{18}
-\contentsline {section}{\numberline {7.3}Mo\IeC {\.z}liwo\IeC {\'s}ci dalszego rozwoju projektu}{18}
-\contentsline {section}{\numberline {7.4}Promocja i reklama}{18}
+\contentsline {chapter}{\numberline {7}Podsumowanie}{21}
+\contentsline {section}{\numberline {7.1}Co uda\IeC {\l }o si\IeC {\k e} zrealizowa\IeC {\'c}?}{21}
+\contentsline {section}{\numberline {7.2}Mo\IeC {\.z}liwo\IeC {\'s}ci dalszego rozwoju projektu}{21}
+\contentsline {section}{\numberline {7.3}Promocja i reklama}{22}

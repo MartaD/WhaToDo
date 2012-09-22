@@ -282,7 +282,7 @@ System składa się z czterech modułów:
 Algorytm otrzymuje na wejściu trzy parametry:
 \begin{itemize}
 \item \underline{zadanie} (w implementacji jest to konkretnie id zadania)
-\item \underline{godzinę rozpoczęcia i zakończenia danego dnia} (\textit{godziny w których można przydzielać zadania; aktualnie są one narzucone z góry i zapisane bezpośrednio w kodzie; w przyszłości użytkownik miałby opcję określić te godziny dla każdego dnia tygodnia})
+\item \underline{godzinę rozpoczęcia i zakończenia dnia} (\textit{godziny w których można przydzielać zadania; aktualnie są one narzucone z góry i zapisane bezpośrednio w kodzie; w przyszłości użytkownik miałby opcję określić te godziny dla każdego dnia tygodnia})
 \item \underline{czas rozpoczęcia wyszukiwania} (\textit{opcjonalne; domyślnie algorytm rozpoczyna wyszukiwanie terminu dla zadania od ,,teraz''; tym parametrem można określić od jakiego terminu ma rozpocząć wyszukiwanie})
 \end{itemize}
 
@@ -290,11 +290,13 @@ Algorytm otrzymuje na wejściu trzy parametry:
 \item Jeżeli zadanie ma już określony termin: nic nie rób.
 \item Jeżeli zadanie jest dłuższe od jednego dnia roboczego: nic nie rób (\textit{algorytm w podstawowej wersji nie ma możliwości podziału zadań na mniejsze części - planowaliśmy to wprowadzić w kolejnej wersji}).
 \item Ustal \underline{czas startu} na \underline{czas rozpoczęcia wyszukiwania}, jeżeli ustawiony, w przeciwnym przypadku na aktualny czas. Ustal \underline{czas zakończenia} na \underline{czas startu}+\underline{czas trwania}.
+\item Jeżeli \underline{czas startu} jest wcześniejszy niż \underline{godzina rozpoczęcia dnia}, ustal \underline{czas startu} na\\ \underline{godzinę rozpoczęcia dnia} i przelicz ponownie \underline{czas zakończenia}.
+\item Jeżeli \underline{czas zakończenia} jest późniejszy niż \underline{godzinę zakończenia dnia}, ustal \underline{czas startu} na \underline{godzinę rozpoczęcia dnia} i przelicz ponownie \underline{czas zakończenia}.
 \item Jeżeli \underline{czas zakończenia} jest późniejszy od \underline{deadline'u}, zwróć informację o niepowodzeniu i zakończ algorytm.
 \item Pobierz wszystkie zadania z ustalonym czasem rozpoczęcia i zakończenia
 \item Weź pierwsze zadanie z pobranej listy i sprawdź czy jego termin zachodzi na zakres \underline{czas startu}-\underline{czas zakończenia}.
 \item Jeżeli terminy na siebie zachodzą, ustal \underline{czas rozpoczęcia wyszukiwania} na czas zakończenia zadania znalezionego w bazie i rozpocznij algorytm od początku.
-\item Jeżeli terminy na siebie nie zachodzą i są jeszcze jakieś zadania na liście, wróć do punktu~6.
+\item Jeżeli terminy na siebie nie zachodzą i są jeszcze jakieś zadania na liście, wróć do punktu~8.
 \item Przedstaw ustalony termin do akceptacji użytkownikowi.
 \item W przypadku braku akceptacji, powtórz algorytm. Ustaw \underline{czas rozpoczęcia wyszukiwania} na \underline{czas startu}+1 godzina (\textit{1 godzina została wybrana przez nas i nie ma żadnego uzasadnienia. Powoduje tylko i wyłącznie zaproponowanie późniejszego terminu rozpoczęcia zadania}).
 \item W przypadku akceptacji, zapisz informacje w bazie.
@@ -319,14 +321,42 @@ Algorytm otrzymuje na wejściu trzy parametry:
 
 \section{Warstwa Prezentacji}
 
-TODO: Tutaj krótki opis i kilka zrzutów ekranu
+Aplikacja składa się z dwóch głównych ekranów: kalendarza~(rys.~\ref{fig:kalendarz}) oraz obszaru roboczego~(rys.~\ref{fig:obszar}). Ponadto występują ekrany dodatkowe: dodawanie nowego zadania~(rys.~\ref{fig:noweZad}), wyświetlanie informacji o~zadaniu~(rys.~\ref{fig:infoZad}) oraz proponowanie terminu zadania~(rys.~\ref{fig:propozZad}).
 
-%\begin{figure}[!h]
-%\centering
-%\includegraphics[width=\textwidth]{Prezentacja1}
-%\caption{Schemat procesu implementacji}
-%\label{schematProcesuImplementacji}
-%\end{figure}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\textwidth]{kalendarz}
+\caption{Kalendarz}
+\label{fig:kalendarz}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\textwidth]{Obszar_roboczy}
+\caption{Obszar roboczy}
+\label{fig:obszar}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\textwidth]{Nowe_zadanie}
+\caption{Dodawanie nowego zadania}
+\label{fig:noweZad}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\textwidth]{Informacje_o_zadaniu}
+\caption{Informacje o zadaniu}
+\label{fig:infoZad}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\textwidth]{Propozycja_terminu}
+\caption{Proponowanie terminu zadania}
+\label{fig:propozZad}
+\end{figure}
 
 % ===========================================================================
 
@@ -334,15 +364,21 @@ TODO: Tutaj krótki opis i kilka zrzutów ekranu
 
 \section{Co udało się zrealizować?}
 
-TODO: Czy jesteśmy zadowoleni i takie tam.
+Nie udało nam się zrealizować wszystkich planów, które sobie założyliśmy. Chcieliśmy przygotować aplikację, którą można by umieścić na ogólnodostępnym serwerze i zacząć testować wśród znajomych. Udało nam się stworzyć jeno szablon takiej aplikacji, który wymaga jeszcze dużo dopracowania.
 
-\section{Napotkane problemy}
-
-TODO: Chociażby to, że Ruby jest dla nas nieznaną technologią.
+Napotkanych trudności było wiele. Największą okazała się nowa, nieznana nam wcześniej, technologia, jaką jest Ruby on Rails. Nie jest to niestety framework, którego da się nauczyć w ciągu kilku nocy. Spędziliśmy nad nim długie wakacyjne dni, zanim zaczęliśmy coś ,,łapać''.
 
 \section{Możliwości dalszego rozwoju projektu}
 
-TODO: Trzeba zaglądnąć w listę rzeczy, które mamy w specyfikacji i jakoś opisać + może mamy jakieś inne pomysły jeszcze ;)
+Na pewno należy zaimplementować jedną z dwóch głównych funkcjonalności serwisu, czyli propoponowanie zadań do wykonania w najbliższym tygodniu (zobacz: sekcja~\ref{sec:algPlanTygodniowy}). Ponadto istotne jest stworzenie dodatkowych arkuszy styli, dzięki czemu aplikacja byłaby łatwiej dostępna przez urządzenia mobilne.
+
+Dobrze by było stworzyć widok tygodniowy, jak i dzienny kalendarza, co poprawiło by czytelność ustalonego planu.
+
+Ciekawym rozszerzeniem systemu byłoby na pewno dodanie możliwości podziału zadań. Tak, aby podziału dokonywał system. Np. mamy duże zadanie \textit{Stwórz projekt z ZTB}, które szacujemy na 60 godzin. W takiej sytuacji dobrze by było, aby system sam podzielił zadanie na mniejsze fragmenty, np po 3-4h i je powstawiał do planu. Trudnością tutaj jest np pytanie: jak dokonać podziału na mniejsze części, żeby np nie były zbyt małe?
+
+Zaawansowaną funkcjonalnością byłoby wykorzystywanie geolokalizacji. Można po pierwsze obliczać odstęp w przestrzeni pomiędzy zadaniami. A po drugie, po połączeniu z innymi systemami (rozkład mpk, ceny paliw), planować również trasy przejazdu, obliczać ich koszty (bilety, benzyna) i dążyć do ich optymalizacji.
+
+Drugą zaawansowaną funkcjonalnością byłoby wykorzystanie informacji pogodowych. W takiej sytuacji, w czasie deszczu system mógłby preferować autobus nad marszem, bądź sugerować użytkownikowi: \textit{nie, nie chcesz w środę iść na odkryty basen, ponieważ będzie padać}. Jak to zaimplementować? To jest pytanie problematyczne na przyszłość!
 
 \section{Promocja i reklama}
 
