@@ -72,7 +72,7 @@ Dostęp do systemu uzyskiwany jest przez przeglądarkę internetową. W przyszł
 
 \section{Innowacyjność rozwiązania}
 
-Innowacyjność naszego rozwiązania polega na wykorzystaniu metod coachingowych wspierających zarządzanie sobą w czasie. Przy ich wykorzystaniu, stworzyliśmy asystenta, który nie tylko przechowuje informacje o naszych zadaniach i przypomina o zbliżających się deadlinach, ale także pozwala na określanie ważności zadań. \textbf{Najważniejszą innowacją naszej aplikacji jest proponowanie terminów wykonania obowiązków, które nie mają określonej konkretnej daty realizacji} (na podstawie priorytetów i informacjach o dostępności wolnego czasu).
+Innowacyjność naszego rozwiązania polega na wykorzystaniu metod wspierających zarządzanie sobą w czasie. Przy ich wykorzystaniu, stworzyliśmy asystenta, który nie tylko przechowuje informacje o naszych zadaniach i przypomina o zbliżających się deadlinach, ale także pozwala na określanie ważności zadań. \textbf{Najważniejszą innowacją naszej aplikacji jest proponowanie terminów wykonania obowiązków, które nie mają określonej konkretnej daty realizacji} (na podstawie priorytetów i informacjach o dostępności wolnego czasu).
 
 W tym momencie działa proponowanie terminu dla jednego kolejnego zadania. Planowana jest implementacja proponowania terminów dla zadań na cały najbliższy tydzień: system ocenia, które zadania należy wykonać w jakich terminach, uwzględniając różne priorytety zadań i deadline'y każdego z nich.
 
@@ -161,34 +161,74 @@ Ponieważ te dwie myśli z powodzeniem stosujemy we własnym życiu. Odciążeni
 
 \section{Przypadki użycia}
 
-\subsection{Ogólny diagram}
+\subsection{Ogólny diagram przypadków użycia}
 
-TODO: diagram
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\textwidth]{useCase}
+\caption{Ogólny diagram przypadków użycia}
+\label{fig:przypadki}
+\end{figure}
 
-%\begin{figure}[!h]
-%\centering
-%\includegraphics[width=\textwidth]{Prezentacja1}
-%\caption{Schemat procesu implementacji}
-%\label{schematProcesuImplementacji}
-%\end{figure}
+Poniżej definicje trzech wybranych przypadków użycia.
 
-\subsection{Definicje przypadków użycia}
+\clearpage
 
-\subsubsection*{UC1}
+\subsection{UC1: Dodanie zadania}
 
-TODO: Zerknąć na to co było w prezentacji pokazywane kiedyś.
+\textbf{Cel}: użytkownik chce dodać nowe zadanie
 
+\textbf{Zdarzenie wyzwalające (trigger)}: użytkownik wybiera opcję Dodaj nowe zadanie
+
+\textbf{Scenariusz główny}:
+\begin{enumerate}
+\item System wyświetla formularz wprowadzania informacji o zadaniu
+\item Użytkownik wprowadza dane (nazwa, opis, czas trwania)
+\item System zapisuje dane w bazie danych i odświeża widok (pojawia się nowe zadanie na liście zadań)
+\end{enumerate}
+
+
+\subsection{UC2: Zmiana priorytetu zadania}
+
+\textbf{Cel}: użytkownik chce zmienić priorytet zadania
+
+\textbf{Scenariusz główny}:
+\begin{enumerate}
+\item Użytkownik klika na zadanie i przeciąga je w odpowiednie miejsce (na listę zadań, co powoduje usunięcie priorytetu; na ćwiartkę obszaru roboczego - ustawienie ustalenie priorytetu)
+\item System zapisuje zmiany w bazie danych
+\end{enumerate}
+
+
+\subsection{UC3: Sugerowanie terminu dla zadania}
+
+\textbf{Cel}: użytkownik chce otrzymać od systemu propozycję terminu dla zadania z listy zadań
+
+\textbf{Zdarzenie wyzwalające (trigger)}: użytkownik wybiera opcję \textit{Zasugeruj termin zadania}
+
+\textbf{Scenariusz główny}:
+\begin{enumerate}
+\item System wyświetla propozycję terminu
+\item Użytkownik akceptuje ją
+\item System zapisuje zmiany w bazie danych
+\end{enumerate}
+
+\textbf{Scenariusz alternatywny}:
+\begin{description}
+\item[2A] Użytkownik nieakceptuje propozycji
+\item[2A1] System oblicza inny dostępny termin
+\item[2A2] Scenariusz główny jest kontynuowany od punktu 1.
+\end{description}
+
+\clearpage
 
 \section{Baza danych}
 
-TODO: diagram
-
-%\begin{figure}[!h]
-%\centering
-%\includegraphics[width=\textwidth]{Prezentacja1}
-%\caption{Schemat procesu implementacji}
-%\label{schematProcesuImplementacji}
-%\end{figure}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=.75\textwidth]{bazyDanych}
+\caption{Schemat bazy danych}
+\label{fig:bazaDanych}
+\end{figure}
 
 
 % ===========================================================================
@@ -214,29 +254,68 @@ W celu synchronizacji tworzonego kodu, wykorzystaliśmy repozytorium założone 
 
 \section{Technologia}
 
-TODO: Netbeans, Ruby on rails, PostgreSQL, HTML5, ...\\
-Przy RoR wspomnieć o tym, że wymusza MVC (chociaż u nas i tak nie jest to w pełni zachowane :P)
+\begin{itemize}
+\item Cały nasz projekt został stworzony w środowisku \textbf{Netbeans}.
+\item Aplikacja została oparta na frameworku \textbf{Ruby on Rails}. Wybór ten pociągnął za sobą dwie główne konsekwencje. Z jednej strony ułatwienie w postaci wymuszenia przez RoR korzystania z wzorca Model-View-Controller oraz w postaci dużej liczby dostępnych modułów i małej liczby potrzebnego kodu. Z drugiej strony było to dla nas dużym utrudnieniem, ponieważ nie mieliśmy wcześniej styczności zarówno z frameworkiem Ruby on Rails, jak i z samym językiem programowania Ruby. Należy tutaj zwrócić uwagę, że nie jest to framework prosty - dużo czasu zajęły nam próby zrozumienia jak on działa.
+\item Wszystkie informacje o użytkownikach oraz zadaniach przechowywane są w bazie danych \textbf{PostgreSQL}.
+\item Wykorzystano również fragment możliwości oferowanych przez \textbf{HTML5}. Konkretnie: tag \texttt{<details>} oraz natywny \textit{drag\&drop}.
+\end{itemize}
+
 
 \section{Moduły}
 
-TODO: Użytkownicy, Taski, Kalendarz, ...
+System składa się z czterech modułów:
+
+\begin{itemize}
+\item \textbf{Użytkownicy}. Odpowiedzialnego za zarządzanie użytkownikami serwisu: tworzenie i kasowanie kont.
+\item \textbf{Autoryzacja}. Odpowiedzialnego za logowanie i wylogowywanie z aplikacji oraz utrzymywanie sesji.
+\item \textbf{Zadania}. Odpowiedzialnego za tworzenie, edycję, kasowanie i przechowywanie zadań. Również za przydzielanie im priorytetów i proponowanie terminów realizacji (dla zadań, które nie mają ściśle określonego terminu).
+\item \textbf{Kalendarz}. Odpowiedzialnego za wyświetlanie kalendarza, zawierającego zadania przesłane z modułu zadań.
+\end{itemize}
+
 
 \section{Algorytmy}
 
-TODO: Może jeszcze jakieś inne opisać?
-
 \subsection{Sugestia terminu dla wybranego zadania}
+\label{sec:algJednoZadanie}
 
-TODO: Może zrobić opis w formie diagramów?
+Algorytm otrzymuje na wejściu trzy parametry:
+\begin{itemize}
+\item \underline{zadanie} (w implementacji jest to konkretnie id zadania)
+\item \underline{godzinę rozpoczęcia i zakończenia danego dnia} (\textit{godziny w których można przydzielać zadania; aktualnie są one narzucone z góry i zapisane bezpośrednio w kodzie; w przyszłości użytkownik miałby opcję określić te godziny dla każdego dnia tygodnia})
+\item \underline{czas rozpoczęcia wyszukiwania} (\textit{opcjonalne; domyślnie algorytm rozpoczyna wyszukiwanie terminu dla zadania od ,,teraz''; tym parametrem można określić od jakiego terminu ma rozpocząć wyszukiwanie})
+\end{itemize}
+
+\begin{enumerate}
+\item Jeżeli zadanie ma już określony termin: nic nie rób.
+\item Jeżeli zadanie jest dłuższe od jednego dnia roboczego: nic nie rób (\textit{algorytm w podstawowej wersji nie ma możliwości podziału zadań na mniejsze części - planowaliśmy to wprowadzić w kolejnej wersji}).
+\item Ustal \underline{czas startu} na \underline{czas rozpoczęcia wyszukiwania}, jeżeli ustawiony, w przeciwnym przypadku na aktualny czas. Ustal \underline{czas zakończenia} na \underline{czas startu}+\underline{czas trwania}.
+\item Jeżeli \underline{czas zakończenia} jest późniejszy od \underline{deadline'u}, zwróć informację o niepowodzeniu i zakończ algorytm.
+\item Pobierz wszystkie zadania z ustalonym czasem rozpoczęcia i zakończenia
+\item Weź pierwsze zadanie z pobranej listy i sprawdź czy jego termin zachodzi na zakres \underline{czas startu}-\underline{czas zakończenia}.
+\item Jeżeli terminy na siebie zachodzą, ustal \underline{czas rozpoczęcia wyszukiwania} na czas zakończenia zadania znalezionego w bazie i rozpocznij algorytm od początku.
+\item Jeżeli terminy na siebie nie zachodzą i są jeszcze jakieś zadania na liście, wróć do punktu~6.
+\item Przedstaw ustalony termin do akceptacji użytkownikowi.
+\item W przypadku braku akceptacji, powtórz algorytm. Ustaw \underline{czas rozpoczęcia wyszukiwania} na \underline{czas startu}+1 godzina (\textit{1 godzina została wybrana przez nas i nie ma żadnego uzasadnienia. Powoduje tylko i wyłącznie zaproponowanie późniejszego terminu rozpoczęcia zadania}).
+\item W przypadku akceptacji, zapisz informacje w bazie.
+\end{enumerate}
 
 \subsection{Sugestia planu na najbliższy tydzień}
 \label{sec:algPlanTygodniowy}
 
 \textit{Algorytm ten nie został zaimplementowany z powodu braku czasu (i początkowo braku umiejętności programowania w Ruby). Tutaj przedstawiamy wersję, którą planowaliśmy zaimplementować w pierwszej wersji aplikacji.}
 
-1. Ważne-pilne 2. Nieważne-pilne 3. Ważne-niepilne 4. Nieważne-niepilne
+\begin{enumerate}
+\item Pobierz listę wszystkich zadań, które nie mają ustalonego terminu.
+\item Posortuj listę najpierw wg priorytetów: 1. Ważne-pilne 2. Nieważne-pilne 3. Ważne-niepilne 4. Nieważne-niepilne 5. Bez priorytetu, a następnie wg deadline (od najbliższego do najpóźniejszego).
+\item Weź pierwsze zadanie z listy i szukaj dla niego propozycji terminu (\textit{wg algorytmu z sekcji~\ref{sec:algJednoZadanie}}).
+\item Zapisz w lokalnej tablicy propozycję terminu dla tego zadania (tablica indeksowana po id tasków).
+\item Powtórz kroki 3 i 4 do wyczerpania listy zadań, bądź do wyczerpania czasu w tygodniu.
+\item Zaprezentuj znalezione terminy użytkownikowi.
+\item W przypadku braku akceptacji, powtórz algorytm. Tym razem dla pierwszego zadania wywołaj algorytm sugestii terminu z ustawionym \underline{czasem rozpoczęcia wyszukiwania} na \texttt{teraz + random(1:24) godzin} (dzięki temu zostaną przedstawione inne propozycje).
+\item W przypadku akceptacji, zapisz informacje w bazie.
+\end{enumerate}
 
-TODO: Tutaj może też diagram?
 
 \section{Warstwa Prezentacji}
 
