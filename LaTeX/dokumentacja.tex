@@ -33,27 +33,58 @@
 \tableofcontents
 \clearpage
 
-\chapter{Ogólny opis systemu}
+\chapter{Wprowadzenie}
 
-Z podziałem na sekcje, albo po prostu kilka zdań ciągłego tekstu
+\section{Motywacja}
 
-\section{Cel systemu}
+Życie codzienne dostarcza nam niezliczonej ilości informacji, które w dużej mierze związane są z jakimiś zadaniami do wykonania. Zadania te mogą być niewielkie, jak konieczność wykonania telefonu, ale mogą być to też wielogodzinne projekty. Ich cechą wspólną jest na pewno to, że muszą zostać zapamiętane. Pamięć ludzka jest jednak zawodna i często zdarza się, że pamiętamy o czymś przez jakiś czas, a później wylatuje z głowy i nie zostaje wykonane. Naszym projektem jest aplikacja webowa, której głównym celem jest właśnie pomoc w organizacji czasu, poprzez udostępnienie prostego w użyciu narzędzia do zarządzania zadaniami w postaci strony internetowej.
 
-Po co to wszystko?
+\section{Opis istniejących rozwiązań}
 
-\section{Użytkownicy}
+Na rynku dostępnych jest wiele produktów wspomagających organizację czasu. Przed rozpoczęciem projektu dokonaliśmy przeglądu istniejących rozwiązań. Poniżej przedstawiamy opis trzech z nich.
 
-Dla kogo. Możliwość korzystania przez stronę internetową (w przyszłości również przez przeglądarkę w telefonie).
+\subsection{Google Calendar}
 
-\section{Zastosowanie}
+Aplikacja internetowa skierowana do wszystkich osób potrzebujących kalendarza. Produkt pozwala na używanie kilku kalendarzy (własnych, bądź dzielonych z innymi). Jest możliwość definiowania stałych zadań (powtarzających się co określony czas) i usuwania ich jednorazowych wystąpień. Istnieją wersje na urządzenia mobilne (on- i offline). Oferuje różne możliwości przypomnień o zadaniach (pop-up, mail, sms). Produkt jest całkowicie darmowy. Wykorzystywany z powodu łatwości obsługi i dostępności (posiadając konto mailowe google, automatycznie posiada się konto w innych usługach google, m.in. w kalendarzu).
 
-Wizyta u dentysty. Programiku, powiedz przecie, kiedy iść do niego mogę?
+\subsection{Tassky}
+
+Aplikacja internetowa wspomagająca zarządzanie zadaniami indywidualnie i w grupie. Dostępna zarówno dla komputerów stacjonarnych jak i urządzeń mobilnych. Brak widoku kalendarza, ale jest możliwość przeglądania zadań wpisanych na konkretny dzień. Możliwość ustalenia priorytetu (wg własnych kryteriów). Możliwość zlecania zadań innym użytkownikom. Korzystanie z serwisu jest płatne wg ustalonego cennika (np 1 osoba przez 1 miesiąc - 2,46 zł brutto).
+
+\subsection{EssentialPIM}
+Aplikacja dostępna dla użytkowników systemów z rodziny Windows. Skierowana do osób chcących efektywniej zarządzać swoim kalendarzem i listą zadań do wykonania. Dostępna w dwóch wersjach: podstawowej (darmowej) i profesjonalnej (kosztującej 39,95\$ - podstawowe źródło utrzymania aplikacji), różniących się dostępnymi funkcjonalnościami. Aplikacja pozwala na tworzenie różnokolorowych kalendarzy i list zadań. Pozwala na określenie priorytetu danego zadania (wg zdefiniowanej odgórnie listy) i stopnia ukończenia (procentowo). Można łatwo dokonywać zmiany w kalendarzu, dzięki wsparciu mechanizmu drag and drop. Dodatkowo aplikacja zawiera wsparcie dla notatek i obsługi e-maili (książka adresowa).
 
 
-% podział na odpowiednie
-% \section{Nazwa}
-% i ewentualnie
-% \subsection*{Opis produktu}
+% ===========================================================================
+
+\chapter{Ogólny opis naszego systemu}
+
+Stworzony system ma być pomocą w organizacji czasu. Użytkownik ma do dyspozycji trzy główne części:
+\begin{itemize}
+\item \textbf{listę zadań}, do której w prosty sposób może dodać kolejne zadanie do wykonania,
+\item \textbf{kalendarz}, w którym umieszczane są zadania o określonym terminie realizacji (np zajęcia na uczelni, czy umówiona wizyta u klienta),
+\item \textbf{obszar roboczy}, dzięki któremu można przydzielić odpowiedni priorytet do zadania.
+\end{itemize}
+
+Dostęp do systemu uzyskiwany jest przez przeglądarkę internetową. W przyszłości planowane jest stworzenie odpowiednich arkuszy stylów dostosowanych od urządzeń mobilnych, aby możliwe było również wygodne korzystanie z aplikacji za pomocą telefonów komórkowych.
+
+\section{Innowacyjność rozwiązania}
+
+Innowacyjność naszego rozwiązania polega na wykorzystaniu metod coachingowych wspierających zarządzanie sobą w czasie. Przy ich wykorzystaniu, stworzyliśmy asystenta, który nie tylko przechowuje informacje o naszych zadaniach i przypomina o zbliżających się deadlinach, ale także pozwala na określanie ważności zadań. \textbf{Najważniejszą innowacją naszej aplikacji jest proponowanie terminów wykonania obowiązków, które nie mają określonej konkretnej daty realizacji} (na podstawie priorytetów i informacjach o dostępności wolnego czasu).
+
+W tym momencie działa proponowanie terminu dla jednego kolejnego zadania. Planowana jest implementacja proponowania terminów dla zadań na cały najbliższy tydzień: system ocenia, które zadania należy wykonać w jakich terminach, uwzględniając różne priorytety zadań i deadline'y każdego z nich.
+
+\section{Przykładowe zastosowanie}
+
+Czwartek rano. Znana i zabiegana dziennikarka, Marzena, upiększa się w łazience. Po godzinnej walce z włosami stwierdza, że nie jest w stanie doprowadzić swojej fryzury do porządanego stanu. Musi iść do fryzjera. Najbliższe kilka dni ma wypełnione różnymi spotkaniami i zadaniami. Nie wie kiedy może sobie na to pozwolić.
+
+Wyciąga telefon, otwiera aplikację, wpisuje nazwę zadania (\textit{wizyta u fryzjera}) i określa jego czas trwania (\textit{szacuje, że zajmie jej to 2 godziny}). Ustala deadline na sobotę na godzinę 19:00 (\textit{na ten czas zaplanowane jest jej najbliższe spotkanie przed kamerą}).
+
+Po kilku sekundach aplikacja proponuje jej zaplanowanie wizyty u fryzjera na piątek na 10:00. Wtedy ma małą dwugodzinną przerwę pomiędzy odprowadzeniem dziecka do przedszkola i spotkaniem ze swoim szefem. Dzwoni do ulubionego zakładu fryzjerskiego i rezerwuje termin na wizytę.
+
+Marzena jest zadowolna, że problem został rozwiązany. Może dalej walczyć o pokój na świecie i rzetelność informacji. Nie musi zaprzątać sobie głowy problemem \textit{"kiedy iść do fryzjera?"}.
+
+% ===========================================================================
 
 % rysunki:
 %\begin{figure}[!h]
@@ -71,9 +102,15 @@ Wizyta u dentysty. Programiku, powiedz przecie, kiedy iść do niego mogę?
 
 Tutaj jakiś wstęp z informacjami o różnych podejściach
 
-\section{Nasza metoda}
+\section{Zasada nakazująca zapisywanie wszystkiego?}
+
+Łącznie z malutkimi rzeczami jak telefon, etc. Żeby odciążyć pamięć -> ,,oczyścić umysł''. To jest wzięte z GTD
+
+\section{Kwadrat Eisenhowera}
 
 Metoda, którą wybraliśmy. Kto i kiedy wymyślił? Jak działa i dlaczego? Opisać jakieś przykłady zastosowania - chociażby to, że Michał korzysta i działa ;)
+
+Rysunek!
 
 
 % ===========================================================================
