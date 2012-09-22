@@ -6,24 +6,28 @@
 \contentsline {subsection}{\numberline {1.2.2}Tassky}{4}
 \contentsline {subsection}{\numberline {1.2.3}EssentialPIM}{5}
 \contentsline {chapter}{\numberline {2}Og\IeC {\'o}lny opis naszego systemu}{6}
-\contentsline {section}{\numberline {2.1}Innowacyjno\IeC {\'s}\IeC {\'c} rozwi\IeC {\k a}zania}{6}
-\contentsline {section}{\numberline {2.2}Przyk\IeC {\l }adowe zastosowanie}{6}
-\contentsline {chapter}{\numberline {3}Problem: Zarz\IeC {\k a}dzanie czasem}{8}
-\contentsline {section}{\numberline {3.1}Jak zarz\IeC {\k a}dza\IeC {\'c} czasem?}{8}
-\contentsline {section}{\numberline {3.2}Zasada nakazuj\IeC {\k a}ca zapisywanie wszystkiego?}{8}
-\contentsline {section}{\numberline {3.3}Kwadrat Eisenhowera}{8}
-\contentsline {chapter}{\numberline {4}Analiza problemu}{9}
-\contentsline {section}{\numberline {4.1}Przypadki u\IeC {\.z}ycia}{9}
-\contentsline {subsection}{\numberline {4.1.1}Og\IeC {\'o}lny diagram}{9}
-\contentsline {subsection}{\numberline {4.1.2}Definicje przypadk\IeC {\'o}w u\IeC {\.z}ycia}{9}
-\contentsline {section}{\numberline {4.2}Baza danych}{9}
-\contentsline {chapter}{\numberline {5}Metodyka pracy w naszej grupie}{10}
-\contentsline {chapter}{\numberline {6}Implementacja}{11}
-\contentsline {section}{\numberline {6.1}Technologia}{11}
-\contentsline {section}{\numberline {6.2}Modu\IeC {\l }y}{11}
-\contentsline {section}{\numberline {6.3}Algorytmy}{11}
-\contentsline {section}{\numberline {6.4}Warstwa Prezentacj}{11}
-\contentsline {chapter}{\numberline {7}Podsumowanie}{12}
-\contentsline {section}{\numberline {7.1}Co uda\IeC {\l }o si\IeC {\k e} zrealizowa\IeC {\'c}?}{12}
-\contentsline {section}{\numberline {7.2}Napotkane problemy}{12}
-\contentsline {section}{\numberline {7.3}Mo\IeC {\.z}liwo\IeC {\'s}ci dalszego rozwoju projektu}{12}
+\contentsline {section}{\numberline {2.1}Co to jest?}{6}
+\contentsline {section}{\numberline {2.2}Innowacyjno\IeC {\'s}\IeC {\'c} rozwi\IeC {\k a}zania}{6}
+\contentsline {section}{\numberline {2.3}Przyk\IeC {\l }adowe zastosowanie}{6}
+\contentsline {chapter}{\numberline {3}Zarz\IeC {\k a}dzanie czasem}{8}
+\contentsline {section}{\numberline {3.1}Problem?}{8}
+\contentsline {section}{\numberline {3.2}Metodyki zarz\IeC {\k a}dzania czasem}{8}
+\contentsline {section}{\numberline {3.3}Pomys\IeC {\l }y wykorzystane w naszym projekcie}{9}
+\contentsline {chapter}{\numberline {4}Analiza problemu}{11}
+\contentsline {section}{\numberline {4.1}Przypadki u\IeC {\.z}ycia}{11}
+\contentsline {subsection}{\numberline {4.1.1}Og\IeC {\'o}lny diagram}{11}
+\contentsline {subsection}{\numberline {4.1.2}Definicje przypadk\IeC {\'o}w u\IeC {\.z}ycia}{11}
+\contentsline {section}{\numberline {4.2}Baza danych}{11}
+\contentsline {chapter}{\numberline {5}Metodyka pracy w naszej grupie}{12}
+\contentsline {chapter}{\numberline {6}Implementacja}{13}
+\contentsline {section}{\numberline {6.1}Technologia}{13}
+\contentsline {section}{\numberline {6.2}Modu\IeC {\l }y}{13}
+\contentsline {section}{\numberline {6.3}Algorytmy}{13}
+\contentsline {subsection}{\numberline {6.3.1}Sugestia terminu dla wybranego zadania}{13}
+\contentsline {subsection}{\numberline {6.3.2}Sugestia planu na najbli\IeC {\.z}szy tydzie\IeC {\'n}}{13}
+\contentsline {section}{\numberline {6.4}Warstwa Prezentacji}{13}
+\contentsline {chapter}{\numberline {7}Podsumowanie}{14}
+\contentsline {section}{\numberline {7.1}Co uda\IeC {\l }o si\IeC {\k e} zrealizowa\IeC {\'c}?}{14}
+\contentsline {section}{\numberline {7.2}Napotkane problemy}{14}
+\contentsline {section}{\numberline {7.3}Mo\IeC {\.z}liwo\IeC {\'s}ci dalszego rozwoju projektu}{14}
+\contentsline {section}{\numberline {7.4}Promocja i reklama}{14}

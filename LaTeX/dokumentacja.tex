@@ -59,6 +59,8 @@ Aplikacja dostępna dla użytkowników systemów z rodziny Windows. Skierowana d
 
 \chapter{Ogólny opis naszego systemu}
 
+\section{Co to jest?}
+
 Stworzony system ma być pomocą w organizacji czasu. Użytkownik ma do dyspozycji trzy główne części:
 \begin{itemize}
 \item \textbf{listę zadań}, do której w prosty sposób może dodać kolejne zadanie do wykonania,
@@ -82,35 +84,75 @@ Wyciąga telefon, otwiera aplikację, wpisuje nazwę zadania (\textit{wizyta u f
 
 Po kilku sekundach aplikacja proponuje jej zaplanowanie wizyty u fryzjera na piątek na 10:00. Wtedy ma małą dwugodzinną przerwę pomiędzy odprowadzeniem dziecka do przedszkola i spotkaniem ze swoim szefem. Dzwoni do ulubionego zakładu fryzjerskiego i rezerwuje termin na wizytę.
 
-Marzena jest zadowolna, że problem został rozwiązany. Może dalej walczyć o pokój na świecie i rzetelność informacji. Nie musi zaprzątać sobie głowy problemem \textit{"kiedy iść do fryzjera?"}.
+Marzena jest zadowolna, że problem został rozwiązany. Może dalej walczyć o pokój na świecie i rzetelność informacji. Nie musi zaprzątać sobie głowy problemem \textit{kiedy iść do fryzjera?}.
 
 % ===========================================================================
 
-% rysunki:
-%\begin{figure}[!h]
-%\centering
-%\includegraphics[width=\textwidth]{Prezentacja1}
-%\caption{Schemat procesu implementacji}
-%\label{schematProcesuImplementacji}
-%\end{figure}
+\chapter{Zarządzanie czasem}
 
-% ===========================================================================
+\section{Problem?}
 
-\chapter{Problem: Zarządzanie czasem}
+Czas jest zasobem ograniczonym w formacie ilościowym, który co więcej nie daje się cofnąć, składować, nie można go kupić, zwielokrotnić, nie daje się niczym zastąpić i nieustannie upływa. Największym problemem ludzi jest marnowanie czasu\footnote{za: \texttt{http://pl.wikipedia.org/wiki/Zarządzanie\_czasem}, dostęp: 2012-09-21}.
 
-\section{Jak zarządzać czasem?}
+\section{Metodyki zarządzania czasem}
 
-Tutaj jakiś wstęp z informacjami o różnych podejściach
+W związku z rosnącą ilością zadań i zobowiązań oraz nieroszerzaniem się czasu, tworzy się różne sposoby zarządzania czasem tak, aby go jak najlepiej wykorzystać i jak najmniej marnować. Podejścia są różne, niektóre proponują tylko jakieś małe usprawnienia, inne natomiast starają się być kompleksowymi systemami, które pomogą na wszystkie problemy.
 
-\section{Zasada nakazująca zapisywanie wszystkiego?}
+Przykładowe propozycje:
+\begin{itemize}
+\item \textbf{Lista zadań}. Najprostsza rzecz: wypisujemy wszystko na liście i skreślamy to co już zrobione.
+\item \textbf{Kalendarz}. Druga prosta rzecz: w odpowiednim miejscu (data i godzina) wpisujemy to, co mamy zrobić o danej porze.
+\item \textbf{Zasada Pareto}, mówiąca, że \textit{20\% pracy przynosi 80\% efektów, a pozostałe 80\% działań to tylko 20\% efektów}. Zasada ta jest wykorzystywana do przydzielania priorytetów i~planowania działań.
+\item \textbf{Prawo Parkinsona}: \textit{praca rozszerza się wprost proporcjonalnie do czasu wyznaczonego do jej wykonania}.
+\item \textbf{Getting Things Done}, rozbudowany, kompleksowy system zarządzania wszystkimi zadaniami jakie są do zrobienia: od prostych i szybkich rzeczy takich jak telefon z życzeniami do babci, po duże, długofalowe projekty.
+\end{itemize}
 
-Łącznie z malutkimi rzeczami jak telefon, etc. Żeby odciążyć pamięć -> ,,oczyścić umysł''. To jest wzięte z GTD
 
-\section{Kwadrat Eisenhowera}
+\section{Pomysły wykorzystane w naszym projekcie}
 
-Metoda, którą wybraliśmy. Kto i kiedy wymyślił? Jak działa i dlaczego? Opisać jakieś przykłady zastosowania - chociażby to, że Michał korzysta i działa ;)
+W naszym projekcie skorzystaliśmy z dwóch pomysłów na zarządzanie czasem.
 
-Rysunek!
+\begin{enumerate}
+\item \textbf{Należy dążyć do ,,oczyszczenia umysłu''}, czyli zwolnić się z obowiązku pamiętania o~wszystkich zobowiązaniach i~planach. Jest to myśl zaczerpnięta ze wspomnianej wcześniej metodyki \textit{Getting Things Done}. W tym celu absolutnie każde zadanie należy zapisywać, aby nie trzeba było o nim pamiętać.
+
+W naszej aplikacji zostało to zastosowane w postaci najprostszej możliwości dodawania zadania. W przypadku gdy mamy jakąś szybką myśl, że trzeba coś zrobić, wystarczy, że dodamy zadanie które ma tylko ustaloną nazwę. Dzięki temu nie musimy już pamiętać o tym zadaniu, a dokładniejsze dane (opis, deadline, ...) uzupełnimy np wieczorem, podczas przeglądania kalendarza.
+
+\item \textbf{Matryca Eisenhowera} (tab.~\ref{tab:matryca}). Opiera się na dwóch wymiarach:
+\begin{itemize}
+\item \underline{Ważność}: ma związek z naszą misją i najważniejszymi celami. Jeśli coś wpływa znacząco na osiągnięcie istotnych dla nas celów, to znaczy, że jest ważne.
+\item \underline{Pilność}: to kryterium związane z czasem. Zwraca uwagę na termin wykonania jakiegoś zadania. Data ta może być mniej lub bardziej oddalona w czasie, w związku z tym dzieli nasze aktywności na mniej lub bardziej pilne.
+\end{itemize}
+
+\begin{table}[hbtp]
+\centering
+\begin{tabular}{r|p{6cm}|p{6cm}}
+  \textit{WAŻNE} & \textbf{Zarządzanie kryzysami}: ważne telefony, sprawy naglące, zadania z przydzielonym terminem
+                 & \textbf{Zarządzanie samym sobą}: tworzenie i realizowanie planów, dbanie o zdrowie, nauka \\
+  \hline
+  \textit{NIEWAŻNE} & \textbf{Zarządzanie cudzymi priorytetami}: zadania zlecone przez kogoś innego, sprawy naglące, ale nieistotne dla naszych celów
+                 & \textbf{Zarządzanie pożeraczami czasu}: codzienne przyjemności, ,,złodzieje czasu'', internet, telewizja \\
+  \hline
+   & \textit{PILNE} & \textit{NIEPILNE} \\
+\end{tabular}
+\caption{Matryca Eisenhowera}
+\label{tab:matryca}
+\end{table}
+
+Ważne jest, aby najpierw odpowiednio rozdzielić zadania, a następnie odpowiednio rozdzielić siły i czas na aktywności z każdej z ćwiartek. Zadania z ,,zarządzania kryzysami'' należy wykonać teraz, zadania z ,,zarządzania samym sobą'' są najważniejsze z punktu widzenia rozwoju i na nie należy poświęcić najwięcej czasu, zadania z ,,zarządzania cudzymi priorytetami'' należy w miarę możliwości oddelegować innym osobom, a zadania z ,,zarządzania pożeraczami czasu'' należy ograniczać (ale nie rezygnować z nich całkowicie). Więcej o tej koncepcji można doczytać w internecie, bądź w książce ,,7 nawyków skutecznego działania'' Stephena Coveya.
+
+W naszym projekcie wykorzystaliśmy matrycę w dwojaki sposób:
+\begin{enumerate}
+\item Jest jednym z dwóch, obok kalendarza, głównych widoków naszej aplikacji. Pozwala to użytkownikom w łatwy sposób zarządzać swoimi priorytetami i mieć szybki dostęp do tej matrycy.
+
+\item Planowane jest również wykorzystanie matrycy do proponowania planu na najbliższy tydzień. Przygotowany algorytm (zobacz: sekcja~\ref{sec:algPlanTygodniowy}, niestety nie został zaimplementowany), na podstawie przydziału zadań do poszczególnych ćwiartek matrycy, miał decydować które zadania należy wykonać w najbliższym tygodniu.
+
+\end{enumerate}
+
+\end{enumerate}
+
+\textbf{Dlaczego zdecydowaliśmy się akurat na te dwa pomysły zarządzania czasem?}
+
+Ponieważ te dwie myśli z powodzeniem stosujemy we własnym życiu. Odciążenie umysłu pozwala cieszyć się tym co jest tu i teraz i nie myśleć o tym co mamy zrobić: to wszystko mamy zapisane. Natomiast podział zadań na priorytety pozwala skupić się na tym co naprawdę ważne, zamiast tylko ,,gonić za kolejnymi deadline'ami''. Pomaga to na przykład skuteczniej zarządzać swoim czasem w sesji egzaminacyjnej, co potwierdza nasze doświadczenie.
 
 
 % ===========================================================================
@@ -121,25 +163,39 @@ Rysunek!
 
 \subsection{Ogólny diagram}
 
-Diagram
+TODO: diagram
+
+%\begin{figure}[!h]
+%\centering
+%\includegraphics[width=\textwidth]{Prezentacja1}
+%\caption{Schemat procesu implementacji}
+%\label{schematProcesuImplementacji}
+%\end{figure}
 
 \subsection{Definicje przypadków użycia}
 
 \subsubsection*{UC1}
 
-Zerknąć na to co było w prezentacji pokazywane kiedyś.
+TODO: Zerknąć na to co było w prezentacji pokazywane kiedyś.
 
 
 \section{Baza danych}
 
-Diagram
+TODO: diagram
+
+%\begin{figure}[!h]
+%\centering
+%\includegraphics[width=\textwidth]{Prezentacja1}
+%\caption{Schemat procesu implementacji}
+%\label{schematProcesuImplementacji}
+%\end{figure}
 
 
 % ===========================================================================
 
 \chapter{Metodyka pracy w naszej grupie}
 
-Jak nam przebiegała praca w grupie. Z czego korzystaliśmy, żeby się wspierać. Jak dzieliliśmy się zadaniami. Jaka metodyka projektowania. Etc.
+TODO: Jak nam przebiegała praca w grupie. Z czego korzystaliśmy, żeby się wspierać. Jak dzieliliśmy się zadaniami. Jaka metodyka projektowania. Etc.
 
 
 % ===========================================================================
@@ -148,20 +204,40 @@ Jak nam przebiegała praca w grupie. Z czego korzystaliśmy, żeby się wspiera�
 
 \section{Technologia}
 
-Netbeans, Ruby on rails, PostgreSQL, HTML5, ...\\
+TODO: Netbeans, Ruby on rails, PostgreSQL, HTML5, ...\\
 Przy RoR wspomnieć o tym, że wymusza MVC (chociaż u nas i tak nie jest to w pełni zachowane :P)
 
 \section{Moduły}
 
-Użytkownicy, Taski, Kalendarz, ...
+TODO: Użytkownicy, Taski, Kalendarz, ...
 
 \section{Algorytmy}
 
-Tutaj na pewno trzeba opisać algorytm sugestii
+TODO: Może jeszcze jakieś inne opisać?
 
-\section{Warstwa Prezentacj}
+\subsection{Sugestia terminu dla wybranego zadania}
 
-Tutaj krótki opis i kilka zrzutów ekranu
+TODO: Może zrobić opis w formie diagramów?
+
+\subsection{Sugestia planu na najbliższy tydzień}
+\label{sec:algPlanTygodniowy}
+
+\textit{Algorytm ten nie został zaimplementowany z powodu braku czasu (i początkowo braku umiejętności programowania w Ruby). Tutaj przedstawiamy wersję, którą planowaliśmy zaimplementować w pierwszej wersji aplikacji.}
+
+1. Ważne-pilne 2. Nieważne-pilne 3. Ważne-niepilne 4. Nieważne-niepilne
+
+TODO: Tutaj może też diagram?
+
+\section{Warstwa Prezentacji}
+
+TODO: Tutaj krótki opis i kilka zrzutów ekranu
+
+%\begin{figure}[!h]
+%\centering
+%\includegraphics[width=\textwidth]{Prezentacja1}
+%\caption{Schemat procesu implementacji}
+%\label{schematProcesuImplementacji}
+%\end{figure}
 
 % ===========================================================================
 
@@ -169,16 +245,24 @@ Tutaj krótki opis i kilka zrzutów ekranu
 
 \section{Co udało się zrealizować?}
 
-Czy jesteśmy zadowoleni i takie tam.
+TODO: Czy jesteśmy zadowoleni i takie tam.
 
 \section{Napotkane problemy}
 
-Chociażby to, że Ruby jest dla nas nieznaną technologią.
+TODO: Chociażby to, że Ruby jest dla nas nieznaną technologią.
 
 \section{Możliwości dalszego rozwoju projektu}
 
-Trzeba zaglądnąć w listę rzeczy, które mamy w specyfikacji i jakoś opisać + może mamy jakieś inne pomysły jeszcze ;)
+TODO: Trzeba zaglądnąć w listę rzeczy, które mamy w specyfikacji i jakoś opisać + może mamy jakieś inne pomysły jeszcze ;)
 
+\section{Promocja i reklama}
+
+Portal nazwaliśmy ,,whaTodo'', co jest skrótem od angielskiego ,,what to do''. Nazwa ta wskazuje na główną innowację naszej aplikacji czyli sugerowanie terminów wykonywania zadań, które nie mają ściśle określonego czasu wykonania.
+
+Po dopracowaniu serwisu i zakupieniu domeny, chcieliśmy go udostępnić dla wszystkich zainteresowanych. W ramach promocji naszego serwisu przez pierwszy miesiąc dostęp do wszystkich funkcjonalności byłby darmowy. W kolejnych miesiącach zakładaliśmy użytkowanie aplikacji za symboliczne 2 zł / miesiąc.
+
+Hasło reklamowe: ,,\textbf{Nie wiesz za które zadanie się teraz zabrać? Wejdź na www.whatodo.pl i pozwól sobie
+pomóc!}''
 
 \end{document}
 
